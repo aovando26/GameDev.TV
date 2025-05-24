@@ -32,7 +32,7 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < rainToSpawn; i++)
         {
             Instantiate(rainDrops, GenerateSpawnPosition(), rainDrops.transform.rotation);
-            Debug.Log("Instantiated raindrop " + i);
+            //Debug.Log("Instantiated raindrop " + i);
         }
     }
 
