@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Raindrop : MonoBehaviour
+public class DestroyOnCollision : MonoBehaviour
 {
     public float damageValue = -0.4f; // adjust as needed
 
