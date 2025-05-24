@@ -17,6 +17,7 @@ public class SpawnManager : MonoBehaviour
     private void Update()
     {
         timeSinceLastSpawn += Time.deltaTime;
+        //Debug.Log($"Time since last spawn: {timeSinceLastSpawn}");
 
         // Only spawn if there are no raindrops and cooldown has passed
         if (GameObject.FindGameObjectsWithTag("Raindrop").Length == 0 && timeSinceLastSpawn >= spawnCooldown)
@@ -26,13 +27,6 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private Vector3 GenerateSpawnPosition()
-    {
-        float randomX = Random.Range(-spawnRange, spawnRange);
-        float randomZ = Random.Range(-spawnRange, spawnRange);
-        return new Vector3(randomX, 5, randomZ);
-    }
-
     private void SpawnRainDropWave(int rainToSpawn)
     {
         for (int i = 0; i < rainToSpawn; i++)
@@ -40,5 +34,12 @@ public class SpawnManager : MonoBehaviour
             Instantiate(rainDrops, GenerateSpawnPosition(), rainDrops.transform.rotation);
             Debug.Log("Instantiated raindrop " + i);
         }
+    }
+
+    private Vector3 GenerateSpawnPosition()
+    {
+        float randomX = Random.Range(-spawnRange, spawnRange);
+        float randomZ = Random.Range(-spawnRange, spawnRange);
+        return new Vector3(randomX, 5, randomZ);
     }
 }
