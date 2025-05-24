@@ -7,6 +7,7 @@ public class EatingBehavior : MonoBehaviour
     [SerializeField] private LayerMask edibleLayer;
     private CharacterController charController;
     private GameObject foodTarget;
+    private float pointValue = 0.1f;
 
     private void Start()
     {
@@ -43,6 +44,7 @@ public class EatingBehavior : MonoBehaviour
         if (target.transform.localScale.magnitude < 90f)
         {
             Destroy(target);
+            GameManager.Instance.HealthUpdate(pointValue);
             foodTarget = null;
         }
     }
