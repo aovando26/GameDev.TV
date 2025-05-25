@@ -40,8 +40,24 @@ public class SpawnManager : MonoBehaviour
 
     private Vector3 GenerateSpawnPosition()
     {
-        float randomX = Random.Range(-spawnRange, spawnRange);
-        float randomZ = Random.Range(-spawnRange, spawnRange);
-        return new Vector3(randomX, 15, randomZ);
+        Vector2 randomXZ = Random.insideUnitCircle * spawnRange;
+        float yOffset = 15f; // Higher Y position
+        Vector3 spawnPosition = new Vector3(
+            transform.position.x + randomXZ.x,
+            transform.position.y + yOffset,
+            transform.position.z + randomXZ.y
+        );
+        return spawnPosition;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+
+        float yOffset = 15f;
+        Vector3 center = new Vector3(transform.position.x, transform.position.y + yOffset, transform.position.z);
+
+        // Draw a wire sphere to represent the spawn area
+        Gizmos.DrawWireSphere(center, spawnRange);
     }
 }
