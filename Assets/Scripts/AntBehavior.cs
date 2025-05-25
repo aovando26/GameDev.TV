@@ -1,7 +1,8 @@
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class EatingBehavior : MonoBehaviour
+public class AntBehavior : MonoBehaviour
 {
     public float eatingSpeed = 0.2f;
     [SerializeField] private LayerMask edibleLayer;
@@ -46,6 +47,17 @@ public class EatingBehavior : MonoBehaviour
             Destroy(target);
             GameManager.Instance.HealthUpdate(pointValue);
             foodTarget = null;
+        }
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        float deductHealth = -0.2f;
+
+        if (collider.gameObject.CompareTag("Raindrop"))
+        {
+            Debug.Log("Animal hit");
+            GameManager.Instance.HealthUpdate(deductHealth);
         }
     }
 }

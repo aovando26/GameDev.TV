@@ -4,6 +4,7 @@ public class WinGame : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(1);
+        string endScene = "EndScene";
+        SceneManager.LoadScene(endScene);
     }
 }

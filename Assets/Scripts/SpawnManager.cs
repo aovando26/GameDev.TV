@@ -5,7 +5,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject rainDrops;
 
     [SerializeField] private int rainDropsNumber = 1;
-    private float spawnRange = 12.0f;
+    private float spawnRange = 6.0f;
     private float spawnCooldown = 1.0f;
     private float timeSinceLastSpawn = 0f;
 
@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
         {
             SpawnRainDropWave(rainDropsNumber);
             timeSinceLastSpawn = 0f;
-            rainDropsNumber += 4; 
+            rainDropsNumber += 2; 
         }
     }
 
@@ -41,6 +41,6 @@ public class SpawnManager : MonoBehaviour
     {
         float randomX = Random.Range(-spawnRange, spawnRange);
         float randomZ = Random.Range(-spawnRange, spawnRange);
-        return new Vector3(randomX, 25, randomZ);
+        return new Vector3(randomX, 15, randomZ);
     }
 }
