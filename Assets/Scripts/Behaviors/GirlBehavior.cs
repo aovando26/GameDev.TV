@@ -27,7 +27,7 @@ public class GirlBehavior : MonoBehaviour
             if (stompTimer >= stompCooldown)
             {
                 Debug.Log("Stomp triggered");
-                m_Animator.SetBool("isStomping", true);  // use bool instead of trigger
+                m_Animator.SetBool("isStomping", true);
                 stompTimer = 0f;
             }
         }
@@ -36,7 +36,7 @@ public class GirlBehavior : MonoBehaviour
             if (isStomping)
             {
                 Debug.Log("Stopped stomping");
-                m_Animator.SetBool("isStomping", false);  // tell Animator to return to idle
+                m_Animator.SetBool("isStomping", false);
             }
 
             isStomping = false;
