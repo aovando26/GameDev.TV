@@ -3,6 +3,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject rainDrops;
+    public GameObject enemyLeg; 
 
     [SerializeField] private int rainDropsNumber = 1;
     private float spawnRange = 6.0f;
