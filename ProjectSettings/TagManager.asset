@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Raindrop
   - Edible
+  - Pickup
   layers:
   - Default
   - TransparentFX

@@ -73,5 +73,11 @@ public class AntBehavior : MonoBehaviour
             Debug.Log("Animal hit");
             GameManager.Instance.HealthUpdate(deductHealth);
         }
+
+        if (collider.gameObject.CompareTag("Pickup"))
+        {
+            Destroy(collider.gameObject);
+            GameManager.Instance.AddPickup();
+        }
     }
 }

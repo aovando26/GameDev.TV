@@ -1,4 +1,5 @@
 using StarterAssets;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,7 +14,11 @@ public class GameManager : MonoBehaviour
     public float health = 1.0f; // Normalized: 1.0 = full health, 0 = dead
     public bool antIsAlive = true;
     private string starterScene = "Starter";
+
+    private float totalPickups = 0;
+
     public UnityEvent<float> OnFoodChanged = new UnityEvent<float>();
+    public GameObject[] applePickups;
 
     private void Awake()
     {
@@ -46,5 +51,15 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(starterScene);
+    }
+    public void AddPickup()
+    {
+        totalPickups += 0.17f;
+        OnFoodChanged.Invoke(totalPickups);
+    }
+
+    public float GetCurrentFood()
+    {
+        return totalPickups;
     }
 }

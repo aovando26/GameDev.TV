@@ -28,6 +28,7 @@ public class SceneTransition : MonoBehaviour
     {
         string starterScene = "Starter";
         string starterSound = "Starter Sound";
+        string mainSound = "Main Sound";
 
         string mainScene = "Main";  
         if (scene.name == starterScene)
@@ -39,6 +40,7 @@ public class SceneTransition : MonoBehaviour
         else if (scene.name == mainScene)
         {
             AudioManager.Instance.StopAll();
+            AudioManager.Instance.Play(mainSound);
         }
     }
 

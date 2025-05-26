@@ -20,6 +20,8 @@ public class GameplayUI : MonoBehaviour
     {
         GameManager.Instance.OnHealthChanged.AddListener(UpdateHealthBar);
         GameManager.Instance.OnAntDied.AddListener(ShowDeathCanvas);
+        GameManager.Instance.OnFoodChanged.AddListener(UpdateFoodBar);
+
 
         healthSlider.value = initialHealth;
         foodSlider.value = initialFood;
@@ -30,6 +32,11 @@ public class GameplayUI : MonoBehaviour
     private void UpdateHealthBar(float health)
     {
         healthSlider.value = Mathf.Clamp01(health);
+    }
+
+    private void UpdateFoodBar(float foodCount)
+    {
+        foodSlider.value = foodCount;
     }
 
     private void ShowDeathCanvas()

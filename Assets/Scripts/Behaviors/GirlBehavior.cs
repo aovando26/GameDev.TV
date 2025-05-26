@@ -56,4 +56,12 @@ public class GirlBehavior : MonoBehaviour
             stompTimer = stompCooldown;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            GameManager.Instance.OnAntDied.Invoke();
+        }
+    }
 }
