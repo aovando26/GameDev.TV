@@ -19,6 +19,15 @@ public class GirlBehavior : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, antPosition.transform.position);
 
+        Vector3 direction = antPosition.transform.position - transform.position;
+        direction.y = 0f; // stay upright
+
+        if (direction != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+        }
+
         if (distance < 3f)
         {
             isStomping = true;
