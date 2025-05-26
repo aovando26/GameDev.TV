@@ -51,3 +51,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+    spatialBlend: 0
+  - name: Raindrop
+    clip: {fileID: 8300000, guid: e7b0306e343b81e4182361bc25eb1a83, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    spatialBlend: 1
+  - name: Anteating
+    clip: {fileID: 8300000, guid: 46941fb736512a24c9458d4587484cc1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    spatialBlend: 0
