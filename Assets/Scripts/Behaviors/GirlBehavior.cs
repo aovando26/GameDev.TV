@@ -20,11 +20,14 @@ public class GirlBehavior : MonoBehaviour
         float distance = Vector3.Distance(transform.position, antPosition.transform.position);
 
         Vector3 direction = antPosition.transform.position - transform.position;
-        direction.y = 0f; // stay upright
+        direction.y = 0f; // stay upright, rotate around the y-axis
 
-        if (direction != Vector3.zero)
+        if (direction != Vector3.zero) // what are we pointing to
         {
+            // converts the direction vector into a rotation that points forward in that direction.
             Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+            // slerp for smooth rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
         }
 
