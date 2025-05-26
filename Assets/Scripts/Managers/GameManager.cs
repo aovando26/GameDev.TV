@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public float health = 1.0f; // Normalized: 1.0 = full health, 0 = dead
     public bool antIsAlive = true;
     private string starterScene = "Starter";
+    public UnityEvent<float> OnFoodChanged = new UnityEvent<float>();
 
     private void Awake()
     {
