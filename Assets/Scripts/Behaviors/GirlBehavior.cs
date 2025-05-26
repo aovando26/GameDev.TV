@@ -31,7 +31,7 @@ public class GirlBehavior : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
         }
 
-        if (distance < 3f)
+        if (distance < 3.5f)
         {
             isStomping = true;
             stompTimer += Time.deltaTime;
