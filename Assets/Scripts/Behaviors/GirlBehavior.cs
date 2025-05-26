@@ -41,6 +41,7 @@ public class GirlBehavior : MonoBehaviour
                 Debug.Log("Stomp triggered");
                 m_Animator.SetBool("isStomping", true);
                 stompTimer = 0f;
+                AudioManager.Instance.Play("Stomping");
             }
         }
         else

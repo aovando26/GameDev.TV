@@ -1,3 +1,4 @@
+using System;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
@@ -28,7 +29,20 @@ public class AntBehavior : MonoBehaviour
 
         if (foodTarget != null && Input.GetKey(KeyCode.E))
         {
+            Sound eatSound = Array.Find(AudioManager.Instance.sounds, s => s.name == "Anteating");
+
+            if (eatSound != null && !eatSound.source.isPlaying)
+            {
+                AudioManager.Instance.Play("Anteating");
+            }
+
             Eat(foodTarget);
+        }
+
+        // Stop sound when key is released
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            AudioManager.Instance.Stop("Anteating");
         }
     }
 

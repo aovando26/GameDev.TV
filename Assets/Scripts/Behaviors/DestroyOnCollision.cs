@@ -4,6 +4,7 @@ public class DestroyOnCollision : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        AudioManager.Instance.Play("Raindrop");
+        Destroy(gameObject, .5f);
     }
 }
