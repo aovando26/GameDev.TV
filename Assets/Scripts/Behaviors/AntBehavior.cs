@@ -77,6 +77,7 @@ public class AntBehavior : MonoBehaviour
         {
             Destroy(collider.gameObject);
             GameManager.Instance.AddPickup();
+            Debug.Log("Ant has pickup: " + GameManager.Instance.GetCurrentFood());
         }
     }
 }

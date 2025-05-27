@@ -24,6 +24,8 @@ public class GameplayUI : MonoBehaviour
 
 
         healthSlider.value = initialHealth;
+
+        foodSlider.maxValue = 6; // Match required pickups
         foodSlider.value = initialFood;
 
         deathCanvas.SetActive(false);

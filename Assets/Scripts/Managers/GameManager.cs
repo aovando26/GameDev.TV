@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     }
     public void AddPickup()
     {
-        totalPickups += 0.17f;
+        totalPickups += 1f;
         OnFoodChanged.Invoke(totalPickups);
     }
 

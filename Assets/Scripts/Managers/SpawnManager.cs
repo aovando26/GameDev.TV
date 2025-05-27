@@ -7,14 +7,14 @@ public class SpawnManager : MonoBehaviour
     public GameObject enemyLeg; 
 
     [SerializeField] private int rainDropsNumber = 1;
-    //private float spawnRange = 6f;
+    private float spawnRange = 6f;
     private float spawnCooldown = 1.0f;
     private float timeSinceLastSpawn = 0f;
 
     [SerializeField] private float rainDropInterval = 0.2f;
 
-    [SerializeField] private float rectWidth = 25f;
-    [SerializeField] private float rectHeight = 20f;
+    //[SerializeField] private float rectWidth = 25f;
+    //[SerializeField] private float rectHeight = 20f;
     private void Start()
     {
         StartCoroutine(SpawnRainDropWave(rainDropsNumber));
@@ -47,11 +47,13 @@ public class SpawnManager : MonoBehaviour
     }
     private Vector3 GenerateSpawnPosition()
     {
-        float yOffset = 15f;
-
-        float x = transform.position.x + Random.Range(-rectWidth / 2f, rectWidth / 2f);
-        float z = transform.position.z + Random.Range(-rectHeight / 2f, rectHeight / 2f);
-
-        return new Vector3(x, transform.position.y + yOffset, z);
+        Vector2 randomXZ = Random.insideUnitCircle * spawnRange;
+        float yOffset = 15f; // Higher Y position
+        Vector3 spawnPosition = new Vector3(
+            transform.position.x + randomXZ.x,
+            transform.position.y + yOffset,
+            transform.position.z + randomXZ.y
+        );
+        return spawnPosition;
     }
 }

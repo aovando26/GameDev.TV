@@ -7,6 +7,7 @@ public class WinGame : MonoBehaviour
     public int requiredPickups = 6;
 
     private bool readyToDetect = false;
+
     private void Start()
     {
         StartCoroutine(EnableDetectionAfterDelay());
@@ -17,6 +18,7 @@ public class WinGame : MonoBehaviour
         yield return new WaitForSeconds(1f);
         readyToDetect = true;
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (!readyToDetect) return;
@@ -24,6 +26,7 @@ public class WinGame : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             float currentFood = GameManager.Instance.GetCurrentFood();
+            Debug.Log("Player has " + currentFood + " / " + requiredPickups + " pickups");
 
             if (currentFood >= requiredPickups)
             {
